@@ -8,6 +8,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        'backfill': 'rgb(74 75 76)',
+        'operator-keys': 'rgb(255 147 42)',
+        'editor-keys': 'rgb(94 94 95)',
+        'numpad-keys': 'rgb(121 121 122)',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
