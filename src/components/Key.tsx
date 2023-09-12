@@ -17,7 +17,8 @@ export default function Key({
 
     const styling: React.CSSProperties = {
         width: val === "0" ? "50%" : "",
-        backgroundColor: isClicked ? "yellow" : (val === "÷" || val === "+" || val === "x" || val === "-" || val === "=") ? "var(--operator-keys)" : ((val === "AC" || val === "C" || val === "+/-" || val === "%") ? "var(--editor-keys)" : "")
+        backgroundColor: (val === "÷" || val === "+" || val === "x" || val === "-" || val === "=") ? "var(--operator-keys)" : ((val === "AC" || val === "C" || val === "+/-" || val === "%") ? "var(--editor-keys)" : ""),
+        mixBlendMode: isClicked ? "multiply" : "normal"
     }
 
     return (
@@ -25,7 +26,8 @@ export default function Key({
         style={styling}
         className="flex w-1/4 h-1/5 justify-center items-center border border-backfill box-border bg-numpad-keys"
         onMouseDown={() => {setIsClicked(true)}}
-        onMouseUp={() => {setIsClicked(false); click()}}
+        onMouseLeave={() => {setIsClicked(false)}}
+        onMouseUp={() => {isClicked && click(); setIsClicked(false)}}
         >
             <p className="text-white text-2xl select-none">{val}</p>
         </div>
